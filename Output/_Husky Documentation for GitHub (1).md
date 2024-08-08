@@ -173,39 +173,35 @@ Let's add a Lidar sensor to the robot.
 
 **Step 8**
 
-Once the Lidar sensor is in place, we need to add the corresponding ROS 2 nodes to stream the detection data to a ROS 2 topic (ROS2 Bridge).
+Once the Lidar sensor is in place, we need to add the corresponding ROS2 nodes to stream the detection data to a ROS2 topic (ROS2 Bridge).
 
-1\. **Add Lidar OG Nodes:**
+```1.``` **Add Lidar OG Nodes:**
 
 Use the following nodes to publish Lidar data to ROS 2:
 
 - **On Playback Tick Node:** Produces a tick when the simulation is "Playing". Nodes receiving ticks from this node will execute their compute functions every simulation step.
-- **Isaac Read Lidar Beam Node:** Retrieves information about the Lidar and data. For inputs: LidarPrim, add the target to point to the Lidar sensor added at /husky/sesor\_arch\_mount\_link/lidar.
-- **ROS 2 Publish Laser Scan:** Publishes laser scan data. Type /laser\_scan
-
-  into the Topic Name field.
-
-- **Isaac Read Simulation Time:** Uses simulation time to timestamp the /laser\_scan messages.
+- **Isaac Read Lidar Beam Node:** Retrieves information about the Lidar and data. For inputs: ```LidarPrim```, add the target to point to the Lidar sensor added at ```/husky/sesor_arch_mount_link/lidar```.
+- **ROS 2 Publish Laser Scan:** Publishes laser scan data. Type ```/laser_scan``` into the ```Topic Name``` field.
+- **Isaac Read Simulation Time:** Uses simulation time to timestamp the ```/laser_scan``` messages.
 
 ![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.019.png)
 
-10![ref2]
 
-**Step 9![ref1]**
+**Step 9**
 
-**Verify ROS 2 Connections**
+**Verify ROS2 Connections**
 
-- Press Play to start ticking the graph and the physics simulation.
-- Open a separate ROS2-sourced terminal and check that the associated ROS2 topics exist with: ros2 topic list
-  - /laser\_scan should be listed in addition to /rosout.
-- Open RViz2 by typing in rviz2 on the command line if not already open.
-- Inside RViz2, add a LaserScan type to visualize.
-- Ensure the Topic that the laser scan is listening to matches the topic name inside the ROS 2 Publish Laser Scan node (should be sim\_lidar), and the fixed frame matches the frame\_id inside the ROS 2 Publish Laser Scan node (should be laser\_scan).
-- Increase the size of dots inside Laser Scan to 0.08 m and adjust ![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.020.png)the Grid parameters to fit in the mapping of the environment. 
-- Add Image type to visualize the image of /front/stereo\_camera/rgb/depth 
+- Press ```Play``` to start ticking the graph and the physics simulation.
+- Open a separate ROS2-sourced terminal and check that the associated ROS2 topics exist with: ```ros2 topic list```
+  - ```/laser_scan``` should be listed in addition to ```/rosout```.
+- Open RViz2 by typing in ```rviz2``` on the command line if not already open.
+  - Inside RViz2, add a ```LaserScan``` type to visualize.
+  - Ensure the Topic that the laser scan is listening to matches the topic name inside the ```ROS 2 Publish Laser Scan``` node (should be ```sim_lidar```), and the fixed frame matches the ```frame_id``` inside the ROS 2 Publish Laser Scan node (should be ```laser_scan```).
+  - Increase the size of dots inside Laser Scan to 0.08 m and adjust ![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.020.png) the Grid parameters to fit in the mapping of the environment. 
+  - Add ```Image``` type to visualize the image of ```/front/stereo_camera/rgb/depth```. 
 
-11![ref2]
 
+**Step 10**
 
 Now we can use the following approach to make sure that the lidar sensor data is correctly integrated:
 
