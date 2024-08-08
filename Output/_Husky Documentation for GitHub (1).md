@@ -1,4 +1,4 @@
-﻿HuskyVirtualCommissioning![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.001.jpeg)
+﻿Husky Virtual Commissioning![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.001.jpeg)
 
 **Husky – ROS2 Navigation with Omniverse ISAACSIM**
 
