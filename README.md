@@ -1,4 +1,4 @@
-﻿Husky Virtual Commissioning![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.001.jpeg)
+﻿Husky Virtual Commissioning![](cover_husky.png)
 
 **Husky – ROS2 Navigation with Omniverse ISAACSIM**
 
@@ -16,7 +16,7 @@ Follow this tutorial to download ROS2 Humble and its dependencies.
 
 Follow this tutorial to download Isaac Sim.
 
-- First you should make sure that the device is compatible and then download the omniverse launcher. This willbe the hub where all the omniverse features can be accessed, including Isaac Sim.![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.004.png)
+- First you should make sure that the device is compatible and then download the omniverse launcher. This willbe the hub where all the omniverse features can be accessed, including Isaac Sim.
 
 For the following steps we willbe following the Husky Demo tutorial with minor edits to correct the bash and python scripts: <https://github.com/NVIDIA-AI-IOT/husky_demo/blob/main/README.md>
 
@@ -41,7 +41,7 @@ Before we move to the next step we have found several errors in the scripts in t
    - Edit by adding -d in front of ```$ISAAC\_ROS\_PATH``` this ensures that the workspace is created using a correct directory.
    - The corrected line should look like this: ```gnome-terminal --title="Isaac ROS terminal" -- sh -c "bash -c \"scripts/run\_dev.sh -d $ISAAC\_ROS\_PATH; exec bash\""```
 
-![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.007.jpeg)
+![](code_edit_fix.png)
 
 
 2. Edit huksy_isaac_sim.py:
@@ -63,7 +63,7 @@ path_meshes = os.path.join(os.getcwd(), "isaac_ros", "install", "husky_descripti
 path_mesh_accessories = os.path.join(os.getcwd(), "isaac_ros", "install", "husky_isaac_sim", "share", "husky_isaac_sim", "meshes")
   ```
 
-![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.009.jpeg)
+![](code_fix_overview.png)
 
 
 **Step 3**
@@ -148,9 +148,7 @@ ros2 run teleop\_twist\_keyboard teleop\_twist\_keyboard
 - ```teleop_twist_keyboard```: This is the specific node within the package that you are running. It allows you to control the robot using keyboard inputs.
 
 
-View in Isaac Sim          |  Control Pannel
-:-------------------------:|:-------------------------:
-![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.017.jpeg) |  ![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.018.jpeg)
+![](robot_controller_visualization.png)
 *Figure 1: Husky robot in Omniverse ISAAC SIM environment (on the right) and the driving control keyboard panel layout (on the left).*
 
 
@@ -184,7 +182,7 @@ Use the following nodes to publish Lidar data to ROS 2:
 - **ROS 2 Publish Laser Scan:** Publishes laser scan data. Type ```/laser_scan``` into the ```Topic Name``` field.
 - **Isaac Read Simulation Time:** Uses simulation time to timestamp the ```/laser_scan``` messages.
 
-![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.019.png)
+![](lidar_action_graph.png)
 
 
 **Step 9**
@@ -199,7 +197,7 @@ Use the following nodes to publish Lidar data to ROS 2:
   - Ensure the Topic that the laser scan is listening to matches the topic name inside the ```ROS 2 Publish Laser Scan``` node (should be ```sim_lidar```), and the fixed frame matches the ```frame_id``` inside the ROS 2 Publish Laser Scan node (should be ```laser_scan```).
   - Increase the size of dots inside Laser Scan to 0.08 m and adjust the Grid parameters to fit in the mapping of the environment. 
   - Add ```Image``` type to visualize the image of ```/front/stereo_camera/rgb/depth```. 
-![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.020.png)
+![](rviz_representation.png)
 
 **Step 10**
 
@@ -215,11 +213,7 @@ or
 ```bash
 ros2 run tf2\_ros static\_transform\_publisher 0 0 0 0 0 0 1 odom base\_link
 ```
-![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.021.jpeg)
-
-
-
-![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.022.png)
+![](robot_model_visuals.png)
 
 
 **Step 11**
@@ -232,7 +226,7 @@ Further we see how to create an occupancy map in Omniverse Isaac Sim via the ext
 1. The center of this rectangle must be in an unoccupied space
 1. Select the Warehouse prim in the stage. In the Occupancy Map extension, click on BOUND SELECTION.
 1. For the Upper Bound, set the Z height and also modify the parameters to cover the whole environment including a bit outside of the boundaries as well.
-1. Press CALCULATE followed by VISUALIZE IMAGE. A window showing the map will appear.![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.023.jpeg)
+1. Press CALCULATE followed by VISUALIZE IMAGE. A window showing the map will appear.![](mapping_png)
 
 
 7. Visualization Window:![ref1]
@@ -240,7 +234,7 @@ Further we see how to create an occupancy map in Omniverse Isaac Sim via the ext
    - Rotation: Rotates the output image by the specified amount
    - Coordinate Type: Selects the type of configuration output for the generated occupancy map
    - Occupancy Map: Pressing RE-GENERATE IMAGE will create a new image and display the updated configuration output
-![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.024.jpeg)
+![](occupancy_grid.png)
 
 Press the Save Image button and select the location where you wish to save the image. 
 The final stored image will look like above.
