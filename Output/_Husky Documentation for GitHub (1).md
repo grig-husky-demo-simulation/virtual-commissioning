@@ -34,33 +34,33 @@ Clone the demo to try it on workstation using the following script:
 
 Before we move to the next step we have found several errors in the scripts in the husky\_demo folder.
 
-1. Edit husky\_demo.sh:
+1. Edit husky_demo.sh:
 
-   - Open husky\_demo.sh
-   - Find line 121, which should be a part of if ! $HIL\_DEMO ; then section.
-   - Edit by adding -d in front of $ISAAC\_ROS\_PATH this ensures that the workspace is created using a correct directory.
-   - The corrected line should look like this: gnome-terminal --title="Isaac ROS terminal" -- sh -c "bash -c \"scripts/run\_dev.sh -d $ISAAC\_ROS\_PATH; exec bash\""
+   - Open ```husky_demo.sh```
+   - Find line 121, which should be a part of ```if ! $HIL\_DEMO ; then``` section.
+   - Edit by adding -d in front of ```$ISAAC\_ROS\_PATH``` this ensures that the workspace is created using a correct directory.
+   - The corrected line should look like this: ```gnome-terminal --title="Isaac ROS terminal" -- sh -c "bash -c \"scripts/run\_dev.sh -d $ISAAC\_ROS\_PATH; exec bash\""```
 
 ![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.007.jpeg)
 
 
-2. Edit huksy\_isaac\_sim.py:
-   - Open huksy\_isaac\_sim.py
-   - Find lines 160-161 under callback\_description method.
+2. Edit huksy_isaac_sim.py:
+   - Open ```huksy_isaac_sim.py```
+   - Find lines 160-161 under ```callback_description``` method.
    - Correct path to meshes and mesh accessories. This willensure that husky robots willhave meshes in Isaac Sim.
    - Incorrect version willhave install/share which is a wrong path:
 
 ```bash
-  path\_meshes = os.path.join(os.getcwd(), "isaac\_ros", "install", "share", ![ref3]"husky\_description", "meshes")
+  path_meshes = os.path.join(os.getcwd(), "isaac_ros", "install", "share", "husky_description", "meshes")
 
-  path\_mesh\_accessories = os.path.join(os.getcwd(), "isaac\_ros", "install", "share", "husky\_isaac\_sim", "meshes")
+  path_mesh_accessories = os.path.join(os.getcwd(), "isaac_ros", "install", "share", "husky_isaac_sim", "meshes")
   ```
 
-  - Correct version willhave install/share/husky\_description and install/share/husky\_isaac\_sim:
+  - Correct version will have ```install/share/husky_description and install/share/husky_isaac_sim:```
     
 ```bash
-path\_meshes = os.path.join(os.getcwd(), "isaac\_ros", "install", ![ref3]"husky\_description", "share", "husky\_description", "meshes") 
-path\_mesh\_accessories = os.path.join(os.getcwd(), "isaac\_ros", "install", "husky\_isaac\_sim", "share", "husky\_isaac\_sim", "meshes")
+path_meshes = os.path.join(os.getcwd(), "isaac_ros", "install", "husky_description", "share", "husky_description", "meshes") 
+path_mesh_accessories = os.path.join(os.getcwd(), "isaac_ros", "install", "husky_isaac_sim", "share", "husky_isaac_sim", "meshes")
   ```
 
 ![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.009.jpeg)
@@ -68,7 +68,7 @@ path\_mesh\_accessories = os.path.join(os.getcwd(), "isaac\_ros", "install", "hu
 
 **Step 3**
 
-After running it,use the following command to start Isaac Sim and open a new terminal with Docker built to use Isaac ROSand all packages needed for the demo:[^1]
+After running it,use the following command to start Isaac Sim and open a new terminal with Docker built to use Isaac ROSand all packages needed for the demo:
  
 ```bash
 ./husky_demo.sh
@@ -79,70 +79,90 @@ The output should most likely contain src and .gitignore
 
 **Step 3.5**
 
-Next, we need to Colcon build to compile and build the packages in our workspace. If there are new install and build folders inside of your husky\_demo folder remove it
+Next, we need to Colcon build to compile and build the packages in our workspace. If there are new install and build folders inside of your husky_demo folder remove it
+```bash
+rm -rf install/ 
+rm -rf build/
+```
 
-rm -rf install/ rm -rf build/![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.011.png)
+Next, run the following command:
 
-
-Next, run the following command:![ref1]
-
-colcon build --packages-up-to nvblox\_rviz\_plugin husky\_isaac\_sim husky\_description xacro![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.012.png)
+```bash
+colcon build --packages-up-to nvblox_rviz_plugin husky_isaac_sim husky_description xacro
+```
 
 **Step 4**
 
 Again, in Isaac Ros Terminal, which might be renamed now to colcon build. Run the command:
 
-source install/setup.bash![ref5]
+```bash
+source install/setup.bash
+```
 
-Ifthis doesn’twork. Close Isaac Sim and run ./husky\_demo.sh again. Remember that every time you run ./husky\_demo.sh you need to be inside the husky\_demo directory.
+If this doesn’t work, close Isaac Sim and run ```./husky_demo.sh``` again. Remember that every time you run ```./husky_demo.sh``` you need to be inside the ```husky_demo``` directory.
 
-cd husky\_demo ./husky\_demo.sh![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.014.png)
+```bash
+cd husky_demo 
+./husky_demo.sh
+```
 
-Once the new terminal appears source teh install/setup.bash
+Once the new terminal appears source the install/setup.bash
 
-source install/setup.bash![ref5]
+```bash
+source install/setup.bash
+```
 
-6![ref2]
 
-**Step 5 (main)![ref1]**
+**Step 5 (main)**
 
-Next, wait for Isaac Sim to fully load. You should see the warehouse environment loaded and the terminal where Isaac Sim is running should output: “Robot Loader Start.”After this you can run the following command to launch rviz to visualize the husky and to upload husky on Isaac Sim:
+Next, wait for Isaac Sim to fully load. You should see the warehouse environment loaded and the terminal where Isaac Sim is running should output: “Robot Loader Start.” After this you can run the following command to launch rviz to visualize the husky and to upload husky on Isaac Sim:
 
-ros2 launch husky\_isaac\_sim robot\_display.launch.py![ref4]
+```bash
+ros2 launch husky_isaac_sim robot_display.launch.py
+```
 
-IfROS2 doesn’twork you could try sourcing it.
+If ROS2 doesn’t work you could try sourcing it.
 
-source /opt/ros/humble/setup.bash![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.015.png)
+```bash
+source /opt/ros/humble/setup.bash
+```
+**Note:** If there is an error in rviz you can change the frame from odom to base_link
 
-**Note:** Ifthere is an error in rviz you can change the frame from odom to base\_link
+Finally if the you get an error when uploading Husky on Isaac Sim and you can’t see it try running the ```bash ./husky_demo.sh``` again.
 
-Finally if the you get an error when uploading Husky on Isaac Sim and you can’tsee it try running the ./husky\_demo.sh
+Then it will execute the launch file.
 
-Then it willexecute the launch file -This ROS2 script launches all Isaac ROSpackages to localize the robot and start mapping and rviz to visualize the husky on map. The script willalso load a Husky on the environment and automatically set up cameras and controllers.
+-This ROS2 script launches all Isaac ROS packages to localize the robot and start mapping and rviz to visualize the husky on map. The script will also load a Husky on the environment and automatically set up cameras and controllers.
 
-7![ref2]
 
-**Step 6![ref1]**
+**Step 6**
 
 Next, open a new terminal, run the command to set up the driving for the Husky.
 
-ros2 run teleop\_twist\_keyboard teleop\_twist\_keyboard![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.016.png)
+```bash
+ros2 run teleop\_twist\_keyboard teleop\_twist\_keyboard
+```
 
-- ros2 run: This is the command used to run a node in ROS
-- teleop\_twist\_keyboard: This is the name of the package that contains the node for keyboard teleoperation.![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.017.jpeg)
-- teleop\_twist\_keyboard: This is the specific node within the package that you are running. It allows you to control the robot using keyboard inputs.
+- ```ros2 run```: This is the command used to run a node in ROS
+- ```teleop_twist_keyboard```: This is the name of the package that contains the node for keyboard teleoperation.
+- ```teleop_twist_keyboard```: This is the specific node within the package that you are running. It allows you to control the robot using keyboard inputs.
 
-![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.018.jpeg)
 
-Figure 1: Husky robot in Omniverse ISAAC SIM environment (on the right) and the driving control keyboard panel layout (on the left).
+View in Isaac Sim          |  Control Pannel
+:-------------------------:|:-------------------------:
+![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.017.jpeg) |  ![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.018.jpeg)
+*Figure 1: Husky robot in Omniverse ISAAC SIM environment (on the right) and the driving control keyboard panel layout (on the left).*
 
-8![ref2]
+
+**Step 7**
 
 |<p>Let's 1.</p><p>2\.</p><p>3\.</p>|<p>**Step 7![ref1]**</p><p>add a Lidar sensor to the robot.</p><p>**Add the Lidar Sensor:**</p><p>- Go to Create -> Isaac -> Sensors -> PhysX Lidar -> Rotating.</p><p>- Drag the Lidar prim under /husky/sesor\_arch\_mount\_link and place</p><p>&emsp;it in the same location as the top of the robot’s base</p><p>- Zero out any displacement in the Transform fields inside the Property tab to ensure proper alignment by translating the z-axis to approximately -0.45.</p><p>**Configure the Lidar Sensor:**</p><p>- Inside the *RawUSDProperties* tab for the Lidar prim, set maxRange to 25 to ignore anything beyond 25 meters.</p><p>- Check drawLines and drawPoints to visualize the Lidar scans and points.</p><p>**Test the Lidar Sensor:**</p><p>- Press Play to see the Lidar come to life. Red lines indicate a hit, green means no hit, and the color spectrum from green to yellow to red is proportional to the distance of the object detected.</p>|
 | -: | - |
 ||9|
 |||
-**Step 8![ref1]**
+
+
+**Step 8**
 
 Once the Lidar sensor is in place, we need to add the corresponding ROS 2 nodes to stream the detection data to a ROS 2 topic (ROS2 Bridge).
 
