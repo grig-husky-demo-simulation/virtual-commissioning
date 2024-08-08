@@ -2,11 +2,9 @@
 
 **Husky – ROS2 Navigation with Omniverse ISAACSIM**
 
-The project aims to streamline the commissioning process of robotic systems, particularly focusing on the Husky platform, through the integration of ROS2 for navigation and Omniverse ISAAC SIMfor simulation.
+The aim of this project is to streamline the commissioning process of robotic systems, focusing on the Husky robot, through the integration of ROS2 for navigation and Omniverse ISAAC SIM for simulation. 
 
-1![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.002.png)
-
-**STEP 1![ref1]**
+**STEP 1**
 
 ***Workstation, Installation, Running***
 
