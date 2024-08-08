@@ -24,11 +24,11 @@ For the following steps we willbe following the Husky Demo tutorial with minor e
 
 Clone the demo to try it on workstation using the following script:
 
-git clone <https://github.com/NVIDIA-AI-IOT/husky_demo.git>![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.005.png)
+  ```bash
+  git clone <https://github.com/NVIDIA-AI-IOT/husky_demo.git>
 
-cd husky\_demo
-
-2![ref2]
+  cd husky\_demo
+  ```
 
 **Step 2.5![ref1]**
 
