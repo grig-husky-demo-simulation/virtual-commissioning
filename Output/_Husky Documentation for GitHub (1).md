@@ -156,10 +156,19 @@ View in Isaac Sim          |  Control Pannel
 
 **Step 7**
 
-|<p>Let's 1.</p><p>2\.</p><p>3\.</p>|<p>**Step 7![ref1]**</p><p>add a Lidar sensor to the robot.</p><p>**Add the Lidar Sensor:**</p><p>- Go to Create -> Isaac -> Sensors -> PhysX Lidar -> Rotating.</p><p>- Drag the Lidar prim under /husky/sesor\_arch\_mount\_link and place</p><p>&emsp;it in the same location as the top of the robot’s base</p><p>- Zero out any displacement in the Transform fields inside the Property tab to ensure proper alignment by translating the z-axis to approximately -0.45.</p><p>**Configure the Lidar Sensor:**</p><p>- Inside the *RawUSDProperties* tab for the Lidar prim, set maxRange to 25 to ignore anything beyond 25 meters.</p><p>- Check drawLines and drawPoints to visualize the Lidar scans and points.</p><p>**Test the Lidar Sensor:**</p><p>- Press Play to see the Lidar come to life. Red lines indicate a hit, green means no hit, and the color spectrum from green to yellow to red is proportional to the distance of the object detected.</p>|
-| -: | - |
-||9|
-|||
+Let's add a Lidar sensor to the robot.
+
+```1.``` **Add the Lidar Sensor:**
+- Go to ```Create -> Isaac -> Sensors -> PhysX Lidar -> Rotating.```
+- Drag the Lidar prim under ```/husky/sesor_arch_mount_link``` and place it in the same location as the top of the robot’s base
+- Zero out any displacement in the Transform fields inside the Property tab to ensure proper alignment by translating the z-axis to approximately -0.45
+
+```2.``` **Configure the Lidar Sensor:**
+- Inside the *RawUSDProperties* tab for the Lidar prim, set ```maxRange``` to 25 to ignore anything beyond 25 meters.
+- Check ```drawLines``` and ```drawPoints``` to visualize the Lidar scans and points.
+
+```3.``` **Test the Lidar Sensor:**
+- Press Play to see the Lidar come to life. Red lines indicate a hit, green means no hit, and the color spectrum from green to yellow to red is proportional to the distance of the object detected.
 
 
 **Step 8**
