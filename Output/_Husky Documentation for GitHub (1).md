@@ -197,32 +197,35 @@ Use the following nodes to publish Lidar data to ROS 2:
 - Open RViz2 by typing in ```rviz2``` on the command line if not already open.
   - Inside RViz2, add a ```LaserScan``` type to visualize.
   - Ensure the Topic that the laser scan is listening to matches the topic name inside the ```ROS 2 Publish Laser Scan``` node (should be ```sim_lidar```), and the fixed frame matches the ```frame_id``` inside the ROS 2 Publish Laser Scan node (should be ```laser_scan```).
-  - Increase the size of dots inside Laser Scan to 0.08 m and adjust ![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.020.png) the Grid parameters to fit in the mapping of the environment. 
+  - Increase the size of dots inside Laser Scan to 0.08 m and adjust the Grid parameters to fit in the mapping of the environment. 
   - Add ```Image``` type to visualize the image of ```/front/stereo_camera/rgb/depth```. 
-
+![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.020.png)
 
 **Step 10**
 
 Now we can use the following approach to make sure that the lidar sensor data is correctly integrated:
 
-**Checking for Missing Transforms:** Ensure that the lidar sensor frame is properly defined and connected in the TF tree. As this is missing, and we see a white silhouette of the robot model, we add a static transform between base\_link and the lidar sensor
+**Checking for Missing Transforms:** Ensure that the lidar sensor frame is properly defined and connected in the TF tree. As this is missing, and we see a white silhouette of the robot model, we add a static transform between ```base_link``` and the lidar sensor frame.
 
-frame.
-
+```bash
 ros2 run tf2\_ros static\_transform\_publisher 0 0 0 0 0 0 1 base\_link sim\_lidar
+```
+or
 
+```bash
 ros2 run tf2\_ros static\_transform\_publisher 0 0 0 0 0 0 1 odom base\_link
-
+```
 ![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.021.jpeg)
 
-12![ref2]
+
 
 ![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.022.png)
 
-13![ref2]![ref1]
 
+**Step 11**
 
-This part will elaborate on how to create an occupancy map in Omniverse Isaac Sim via the extension to generate a 2-dimensional occupancy map for an environment.
+Further we see how to create an occupancy map in Omniverse Isaac Sim via the extension to generate a 2-dimensional occupancy map for an environment.
+
 
 1. In the Occupancy Map Generator UI set the origin to an empty location in the stage.
 1. You will see a wireframe rectangle appear in the stage showing the bounds of the area used to create the map
@@ -231,31 +234,13 @@ This part will elaborate on how to create an occupancy map in Omniverse Isaac Si
 1. For the Upper Bound, set the Z height and also modify the parameters to cover the whole environment including a bit outside of the boundaries as well.
 1. Press CALCULATE followed by VISUALIZE IMAGE. A window showing the map will appear.![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.023.jpeg)
 
-14![ref2]
 
 7. Visualization Window:![ref1]
-1. Occupied/Freespace/Unknown Colors: These colors are used in the final generated image
-1. Rotation: Rotates the output image by the specified amount
-1. Coordinate Type: Selects the type of configuration output for the generated occupancy map![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.024.jpeg)
-   4. Occupancy Map:
+   - Occupied/Freespace/Unknown Colors: These colors are used in the final generated image
+   - Rotation: Rotates the output image by the specified amount
+   - Coordinate Type: Selects the type of configuration output for the generated occupancy map
+   - Occupancy Map: Pressing RE-GENERATE IMAGE will create a new image and display the updated configuration output
+![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.024.jpeg)
 
-Pressing RE-GENERATE IMAGE will create a new image and display the updated configuration output
-
-Press the Save Image button and select the location where you wish to save the image. The final stored image will look like above.
-
-15![ref2]![ref2]
-
-[^1]: This command will:
-- 
-    Clone all repositories required
-- 
-    Clone the Isaac ROSDocker image
-- 
-    Build a new image
-
-    5
-[ref1]: Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.003.png
-[ref2]: Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.006.png
-[ref3]: Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.008.png
-[ref4]: Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.010.png
-[ref5]: Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.013.png
+Press the Save Image button and select the location where you wish to save the image. 
+The final stored image will look like above.
