@@ -226,7 +226,8 @@ Further we see how to create an occupancy map in Omniverse Isaac Sim via the ext
 1. The center of this rectangle must be in an unoccupied space
 1. Select the Warehouse prim in the stage. In the Occupancy Map extension, click on BOUND SELECTION.
 1. For the Upper Bound, set the Z height and also modify the parameters to cover the whole environment including a bit outside of the boundaries as well.
-1. Press CALCULATE followed by VISUALIZE IMAGE. A window showing the map will appear.![](mapping_png)
+1. Press CALCULATE followed by VISUALIZE IMAGE. A window showing the map will appear.
+   ![](mapping.png)
 
 
 7. Visualization Window:![ref1]
