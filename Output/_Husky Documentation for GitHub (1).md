@@ -27,7 +27,7 @@ Clone the demo to try it on workstation using the following script:
   ```bash
   git clone <https://github.com/NVIDIA-AI-IOT/husky_demo.git>
 
-  cd husky\_demo
+  cd husky_demo
   ```
 
 **Step 2.5**
@@ -66,13 +66,14 @@ path\_mesh\_accessories = os.path.join(os.getcwd(), "isaac\_ros", "install", "hu
 ![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.009.jpeg)
 
 
-**Step 3**![ref1]**
+**Step 3**
 
 After running it,use the following command to start Isaac Sim and open a new terminal with Docker built to use Isaac ROSand all packages needed for the demo:[^1]
-
-./husky\_demo.sh![ref4]
-
-After you run this a new terminal should appear called Isaac Ros Terminal. Check that you are in a correct directory by comparing the contents of isaac\_ros in husky\_demo folder to the workspace directory by running the following command: ls
+ 
+```bash
+./husky_demo.sh
+```
+After you run this a new terminal should appear called Isaac Ros Terminal. Check that you are in a correct directory by comparing the contents of isaac\_ros in husky\_demo folder to the workspace directory by running the following command:   ```ls```
 
 The output should most likely contain src and .gitignore
 
