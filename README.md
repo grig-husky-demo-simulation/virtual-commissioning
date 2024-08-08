@@ -240,4 +240,4 @@ Further we see how to create an occupancy map in Omniverse Isaac Sim via the ext
 Press the Save Image button and select the location where you wish to save the image. 
 The final stored image will look like above.
 
-![](robot_graph.pdf)
+xfun::embed_file("robot_graph.pdf")
