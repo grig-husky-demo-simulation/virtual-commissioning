@@ -30,38 +30,41 @@ Clone the demo to try it on workstation using the following script:
   cd husky\_demo
   ```
 
-**Step 2.5![ref1]**
+**Step 2.5**
 
 Before we move to the next step we have found several errors in the scripts in the husky\_demo folder.
 
 1. Edit husky\_demo.sh:
-1. Open husky\_demo.sh
-1. Find line 121, which should be a part of if ! $HIL\_DEMO ; then section.
-1. Edit by adding -d in front of $ISAAC\_ROS\_PATH this ensures that the workspace is created using a correct directory.
-1. The corrected line should look like this: gnome-terminal --title="Isaac ROS terminal" -- sh -c "bash -c \"scripts/run\_dev.sh -d $ISAAC\_ROS\_PATH; exec bash\""
+
+   - Open husky\_demo.sh
+   - Find line 121, which should be a part of if ! $HIL\_DEMO ; then section.
+   - Edit by adding -d in front of $ISAAC\_ROS\_PATH this ensures that the workspace is created using a correct directory.
+   - The corrected line should look like this: gnome-terminal --title="Isaac ROS terminal" -- sh -c "bash -c \"scripts/run\_dev.sh -d $ISAAC\_ROS\_PATH; exec bash\""
 
 ![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.007.jpeg)
 
-3![ref2]
 
+2. Edit huksy\_isaac\_sim.py:
+   - Open huksy\_isaac\_sim.py
+   - Find lines 160-161 under callback\_description method.
+   - Correct path to meshes and mesh accessories. This willensure that husky robots willhave meshes in Isaac Sim.
+   - Incorrect version willhave install/share which is a wrong path:
 
-2. Edit huksy\_isaac\_sim.py:![ref1]
-1. Open huksy\_isaac\_sim.py
-1. Find lines 160-161 under callback\_description method.
-1. Correct path to meshes and mesh accessories. This willensure that husky robots willhave meshes in Isaac Sim.
-1. Incorrect version willhave install/share which is a wrong path:
+```bash
+  path\_meshes = os.path.join(os.getcwd(), "isaac\_ros", "install", "share", ![ref3]"husky\_description", "meshes")
 
-path\_meshes = os.path.join(os.getcwd(), "isaac\_ros", "install", "share", ![ref3]"husky\_description", "meshes")
+  path\_mesh\_accessories = os.path.join(os.getcwd(), "isaac\_ros", "install", "share", "husky\_isaac\_sim", "meshes")
+  ```
 
-path\_mesh\_accessories = os.path.join(os.getcwd(), "isaac\_ros", "install", "share", "husky\_isaac\_sim", "meshes")
-
-5. Correct version willhave install/share/husky\_description and install/share/husky\_isaac\_sim:
-
-path\_meshes = os.path.join(os.getcwd(), "isaac\_ros", "install", ![ref3]"husky\_description", "share", "husky\_description", "meshes") path\_mesh\_accessories = os.path.join(os.getcwd(), "isaac\_ros", "install", "husky\_isaac\_sim", "share", "husky\_isaac\_sim", "meshes")
+  - Correct version willhave install/share/husky\_description and install/share/husky\_isaac\_sim:
+    
+```bash
+path\_meshes = os.path.join(os.getcwd(), "isaac\_ros", "install", ![ref3]"husky\_description", "share", "husky\_description", "meshes") 
+path\_mesh\_accessories = os.path.join(os.getcwd(), "isaac\_ros", "install", "husky\_isaac\_sim", "share", "husky\_isaac\_sim", "meshes")
+  ```
 
 ![](Aspose.Words.74ec9231-fe7f-4dee-b744-c0806cefcb2c.009.jpeg)
 
-4![ref2]
 
 **Step 3**![ref1]**
 
