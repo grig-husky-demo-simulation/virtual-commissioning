@@ -1,5 +1,7 @@
 ﻿Husky Virtual Commissioning![](cover_husky.png)
 
+[a link](https://adventurous-cowbell-f88.notion.site/Bookmarks-Resources-c1a5f2631f6248309d7fc9ab8f682d7a?pvs=4)
+
 **Husky – ROS2 Navigation with Omniverse ISAACSIM**
 
 The aim of this project is to streamline the commissioning process of robotic systems, focusing on the Husky robot, through the integration of ROS2 for navigation and Omniverse ISAAC SIM for simulation. 
