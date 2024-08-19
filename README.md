@@ -6,7 +6,7 @@
 1. Internet connection
 2. x86/64 machine
 3. Install Ubuntu 22.04
-4. [Install ROS2 Humble](#install-ros2-humble)
+4. Install ROS2 Humble
 5. NVIDIA Graphic card with RTX
 6. Display, Keyboard, and Mouse
 
