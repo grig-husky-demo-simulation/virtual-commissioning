@@ -1,6 +1,15 @@
 # ﻿Husky Virtual Commissioning
 ![](images/cover_husky.png)
 
+## Hardware required
+
+1. Internet connection
+2. x86/64 machine
+3. Install Ubuntu 22.04
+4. [Install ROS2 Humble](#install-ros2-humble)
+5. NVIDIA Graphic card with RTX
+6. Display, Keyboard, and Mouse
+
 ## [RESOURCES](https://adventurous-cowbell-f88.notion.site/Bookmarks-Resources-c1a5f2631f6248309d7fc9ab8f682d7a?pvs=4)
 
 **Husky – ROS2 Navigation with Omniverse ISAACSIM**
