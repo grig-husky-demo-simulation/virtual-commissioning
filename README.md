@@ -35,16 +35,16 @@ Clone the demo to try it on workstation using the following script:
 
 **Step 2.5**
 
-Before we move to the next step we have found several errors in the scripts in the husky\_demo folder.
+Before we move to the next step we have found several errors in the scripts in the husky_demo folder.
 
 1. Edit husky_demo.sh:
 
    - Open ```husky_demo.sh```
-   - Find line 121, which should be a part of ```if ! $HIL\_DEMO ; then``` section.
-   - Edit by adding -d in front of ```$ISAAC\_ROS\_PATH``` this ensures that the workspace is created using a correct directory.
-   - The corrected line should look like this: ```gnome-terminal --title="Isaac ROS terminal" -- sh -c "bash -c \"scripts/run\_dev.sh -d $ISAAC\_ROS\_PATH; exec bash\""```
+   - Find line 121, which should be a part of ```if ! $HIL_DEMO ; then``` section.
+   - Edit by adding -d in front of ```$ISAAC_ROS_PATH``` this ensures that the workspace is created using a correct directory.
+   - The corrected line should look like this: ```gnome-terminal --title="Isaac ROS terminal" -- sh -c "bash -c \"scripts/run_dev.sh -d $ISAAC_ROS_PATH; exec bash\""```
 
-![](code_edit_fix.png)
+![](images/code_edit_fix.png)
 
 
 2. Edit huksy_isaac_sim.py:
@@ -66,7 +66,7 @@ path_meshes = os.path.join(os.getcwd(), "isaac_ros", "install", "husky_descripti
 path_mesh_accessories = os.path.join(os.getcwd(), "isaac_ros", "install", "husky_isaac_sim", "share", "husky_isaac_sim", "meshes")
   ```
 
-![](code_fix_overview.png)
+![](images/code_fix_overview.png)
 
 
 **Step 3**
@@ -76,7 +76,7 @@ After running it,use the following command to start Isaac Sim and open a new ter
 ```bash
 ./husky_demo.sh
 ```
-After you run this a new terminal should appear called Isaac Ros Terminal. Check that you are in a correct directory by comparing the contents of isaac\_ros in husky\_demo folder to the workspace directory by running the following command:   ```ls```
+After you run this a new terminal should appear called Isaac Ros Terminal. Check that you are in a correct directory by comparing the contents of isaac_ros in husky_demo folder to the workspace directory by running the following command:   ```ls```
 
 The output should most likely contain src and .gitignore
 
@@ -143,7 +143,7 @@ Then it will execute the launch file.
 Next, open a new terminal, run the command to set up the driving for the Husky.
 
 ```bash
-ros2 run teleop\_twist\_keyboard teleop\_twist\_keyboard
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
 - ```ros2 run```: This is the command used to run a node in ROS
@@ -151,7 +151,7 @@ ros2 run teleop\_twist\_keyboard teleop\_twist\_keyboard
 - ```teleop_twist_keyboard```: This is the specific node within the package that you are running. It allows you to control the robot using keyboard inputs.
 
 
-![](robot_controller_visualization.png)
+![](images/robot_controller_visualization.png)
 *Figure 1: Husky robot in Omniverse ISAAC SIM environment (on the right) and the driving control keyboard panel layout (on the left).*
 
 
@@ -185,7 +185,7 @@ Use the following nodes to publish Lidar data to ROS 2:
 - **ROS 2 Publish Laser Scan:** Publishes laser scan data. Type ```/laser_scan``` into the ```Topic Name``` field.
 - **Isaac Read Simulation Time:** Uses simulation time to timestamp the ```/laser_scan``` messages.
 
-![](lidar_action_graph.png)
+![](images/lidar_action_graph.png)
 
 
 **Step 9**
@@ -200,7 +200,7 @@ Use the following nodes to publish Lidar data to ROS 2:
   - Ensure the Topic that the laser scan is listening to matches the topic name inside the ```ROS 2 Publish Laser Scan``` node (should be ```sim_lidar```), and the fixed frame matches the ```frame_id``` inside the ROS 2 Publish Laser Scan node (should be ```laser_scan```).
   - Increase the size of dots inside Laser Scan to 0.08 m and adjust the Grid parameters to fit in the mapping of the environment. 
   - Add ```Image``` type to visualize the image of ```/front/stereo_camera/rgb/depth```. 
-![](rviz_representation.png)
+![](images/rviz_representation.png)
 
 **Step 10**
 
@@ -209,14 +209,14 @@ Now we can use the following approach to make sure that the lidar sensor data is
 **Checking for Missing Transforms:** Ensure that the lidar sensor frame is properly defined and connected in the TF tree. As this is missing, and we see a white silhouette of the robot model, we add a static transform between ```base_link``` and the lidar sensor frame.
 
 ```bash
-ros2 run tf2\_ros static\_transform\_publisher 0 0 0 0 0 0 1 base\_link sim\_lidar
+ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 1 base_link sim_lidar
 ```
 or
 
 ```bash
-ros2 run tf2\_ros static\_transform\_publisher 0 0 0 0 0 0 1 odom base\_link
+ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 1 odom base_link
 ```
-![](robot_model_visuals.png)
+![](images/robot_model_visuals.png)
 
 
 **Step 11**
@@ -230,7 +230,7 @@ Further we see how to create an occupancy map in Omniverse Isaac Sim via the ext
 1. Select the Warehouse prim in the stage. In the Occupancy Map extension, click on BOUND SELECTION.
 1. For the Upper Bound, set the Z height and also modify the parameters to cover the whole environment including a bit outside of the boundaries as well.
 1. Press CALCULATE followed by VISUALIZE IMAGE. A window showing the map will appear.
-   ![](mapping.png)
+   ![](images/mapping.png)
 
 
 7. Visualization Window:![ref1]
@@ -238,9 +238,9 @@ Further we see how to create an occupancy map in Omniverse Isaac Sim via the ext
    - Rotation: Rotates the output image by the specified amount
    - Coordinate Type: Selects the type of configuration output for the generated occupancy map
    - Occupancy Map: Pressing RE-GENERATE IMAGE will create a new image and display the updated configuration output
-![](occupancy_grid.png)
+![](images/occupancy_grid.png)
 
 Press the Save Image button and select the location where you wish to save the image. 
 The final stored image will look like above.
 
-![](robot_graph.png)
+![](images/robot_graph.png)
