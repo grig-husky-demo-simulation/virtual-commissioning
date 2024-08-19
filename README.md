@@ -10,7 +10,7 @@
 5. NVIDIA Graphic card with RTX
 6. Display, Keyboard, and Mouse
 
-## [RESOURCES](https://adventurous-cowbell-f88.notion.site/Bookmarks-Resources-c1a5f2631f6248309d7fc9ab8f682d7a?pvs=4)
+## [📚🔗📝🎓💡🌐---RESOURCES](https://adventurous-cowbell-f88.notion.site/Bookmarks-Resources-c1a5f2631f6248309d7fc9ab8f682d7a?pvs=4)
 
 **Husky – ROS2 Navigation with Omniverse ISAACSIM**
 
