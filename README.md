@@ -1,4 +1,5 @@
-﻿Husky Virtual Commissioning![](.images/cover_husky.png)
+﻿Husky Virtual Commissioning
+![](images/cover_husky.png)
 
 [RESOURCES](https://adventurous-cowbell-f88.notion.site/Bookmarks-Resources-c1a5f2631f6248309d7fc9ab8f682d7a?pvs=4)
 
