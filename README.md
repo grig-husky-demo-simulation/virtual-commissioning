@@ -1,7 +1,7 @@
 # ﻿Husky Virtual Commissioning
 ![](images/cover_husky.png)
 
-[RESOURCES](https://adventurous-cowbell-f88.notion.site/Bookmarks-Resources-c1a5f2631f6248309d7fc9ab8f682d7a?pvs=4)
+## [RESOURCES](https://adventurous-cowbell-f88.notion.site/Bookmarks-Resources-c1a5f2631f6248309d7fc9ab8f682d7a?pvs=4)
 
 **Husky – ROS2 Navigation with Omniverse ISAACSIM**
 
@@ -23,7 +23,7 @@ Follow this tutorial to download Isaac Sim.
 
 For the following steps we willbe following the Husky Demo tutorial with minor edits to correct the bash and python scripts: <https://github.com/NVIDIA-AI-IOT/husky_demo/blob/main/README.md>
 
-**STEP 2**
+ # **STEP 2**
 
 Clone the demo to try it on workstation using the following script:
 
@@ -33,7 +33,7 @@ Clone the demo to try it on workstation using the following script:
   cd husky_demo
   ```
 
-**Step 2.5**
+## **Step 2.5**
 
 Before we move to the next step we have found several errors in the scripts in the husky_demo folder.
 
@@ -69,7 +69,7 @@ path_mesh_accessories = os.path.join(os.getcwd(), "isaac_ros", "install", "husky
 ![](images/code_fix_overview.png)
 
 
-**Step 3**
+# **Step 3**
 
 After running it,use the following command to start Isaac Sim and open a new terminal with Docker built to use Isaac ROSand all packages needed for the demo:
  
@@ -80,7 +80,7 @@ After you run this a new terminal should appear called Isaac Ros Terminal. Check
 
 The output should most likely contain src and .gitignore
 
-**Step 3.5**
+## **Step 3.5**
 
 Next, we need to Colcon build to compile and build the packages in our workspace. If there are new install and build folders inside of your husky_demo folder remove it
 ```bash
@@ -94,7 +94,7 @@ Next, run the following command:
 colcon build --packages-up-to nvblox_rviz_plugin husky_isaac_sim husky_description xacro
 ```
 
-**Step 4**
+# **Step 4**
 
 Again, in Isaac Ros Terminal, which might be renamed now to colcon build. Run the command:
 
@@ -116,7 +116,7 @@ source install/setup.bash
 ```
 
 
-**Step 5 (main)**
+# **Step 5 (main)**
 
 Next, wait for Isaac Sim to fully load. You should see the warehouse environment loaded and the terminal where Isaac Sim is running should output: “Robot Loader Start.” After this you can run the following command to launch rviz to visualize the husky and to upload husky on Isaac Sim:
 
@@ -138,7 +138,7 @@ Then it will execute the launch file.
 -This ROS2 script launches all Isaac ROS packages to localize the robot and start mapping and rviz to visualize the husky on map. The script will also load a Husky on the environment and automatically set up cameras and controllers.
 
 
-**Step 6**
+# **Step 6**
 
 Next, open a new terminal, run the command to set up the driving for the Husky.
 
@@ -155,7 +155,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 *Figure 1: Husky robot in Omniverse ISAAC SIM environment (on the right) and the driving control keyboard panel layout (on the left).*
 
 
-**Step 7**
+# **Step 7**
 
 Let's add a Lidar sensor to the robot.
 
@@ -172,7 +172,7 @@ Let's add a Lidar sensor to the robot.
 - Press Play to see the Lidar come to life. Red lines indicate a hit, green means no hit, and the color spectrum from green to yellow to red is proportional to the distance of the object detected.
 
 
-**Step 8**
+# **Step 8**
 
 Once the Lidar sensor is in place, we need to add the corresponding ROS2 nodes to stream the detection data to a ROS2 topic (ROS2 Bridge).
 
@@ -188,7 +188,7 @@ Use the following nodes to publish Lidar data to ROS 2:
 ![](images/lidar_action_graph.png)
 
 
-**Step 9**
+# **Step 9**
 
 **Verify ROS2 Connections**
 
@@ -202,7 +202,7 @@ Use the following nodes to publish Lidar data to ROS 2:
   - Add ```Image``` type to visualize the image of ```/front/stereo_camera/rgb/depth```. 
 ![](images/rviz_representation.png)
 
-**Step 10**
+# **Step 10**
 
 Now we can use the following approach to make sure that the lidar sensor data is correctly integrated:
 
@@ -219,7 +219,7 @@ ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 1 odom base_link
 ![](images/robot_model_visuals.png)
 
 
-**Step 11**
+# **Step 11**
 
 Further we see how to create an occupancy map in Omniverse Isaac Sim via the extension to generate a 2-dimensional occupancy map for an environment.
 
