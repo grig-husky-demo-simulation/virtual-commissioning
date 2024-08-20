@@ -7,7 +7,7 @@
 - You can add bookmarks to folders to faster access the data where you’re working.
 - Nucleus server also has an integrated AI search which you can find in search and opening advanced options.
 - You can search with images.
-- You can drag checkpoints into the scene. The checkpoints could be saved by clicking `files → Save with options → checkpoints` on the right-hand side.
+- You can drag checkpoints into the scene. The checkpoints could be saved by clicking `files → save with options → checkpoints` on the right-hand side.
 
 ## USD Composer
 An Application that Navigates, Builds, Modifies, and Renders photo-accurate materials rendering in both.
