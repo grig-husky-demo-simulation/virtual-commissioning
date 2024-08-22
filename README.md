@@ -254,3 +254,12 @@ The final stored image will look like above.
 
 Additionally, below is the breakdown architecture of the robot components. [Great Visualization Tool](https://excalidraw.com/)
 ![](images/robot_graph.png)
+
+
+
+## Important Notes For Simulation and Localization of the Husky Robot
+
+This project is based on the foundational work provided by NVIDIA, as detailed in their blog post: [Simulate and Localize a Husky Robot with NVIDIA Isaac](https://developer.nvidia.com/blog/simulate-and-localize-a-husky-robot-with-nvidia-isaac/). The blog outlines and provides the essential codebase for simulating and localizing the Husky robot using NVIDIA Isaac Sim.
+
+Leveraging NVIDIA's framework, this project extends those capabilities to create a virtual model of the Husky robot capable of advanced environmental mapping, autonomous navigation, and task execution within a simulated werhouse environment. For those interested in exploring further, NVIDIA's original codebase offers additional features and tools for experimentation and development.
+
