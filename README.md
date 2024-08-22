@@ -257,7 +257,8 @@ Additionally, below is the breakdown architecture of the robot components. [Grea
 
 
 
-## Important Notes For Simulation and Localization of the Husky Robot
+## Important Notes
+## Simulation and Localization of the Husky Robot
 
 This project is based on the foundational work provided by NVIDIA, as detailed in their blog post: [Simulate and Localize a Husky Robot with NVIDIA Isaac](https://developer.nvidia.com/blog/simulate-and-localize-a-husky-robot-with-nvidia-isaac/). The blog outlines and provides the essential codebase for simulating and localizing the Husky robot using NVIDIA Isaac Sim.
 
