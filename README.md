@@ -252,5 +252,5 @@ Further we see how to create an occupancy map in Omniverse Isaac Sim via the ext
 Press the Save Image button and select the location where you wish to save the image. 
 The final stored image will look like above.
 
-Additionally, below is the breakdown architecture of the robot components. 
+Additionally, below is the breakdown architecture of the robot components. [Great Visualization Tool](https://excalidraw.com/)
 ![](images/robot_graph.png)
