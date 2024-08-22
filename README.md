@@ -263,3 +263,22 @@ This project is based on the foundational work provided by NVIDIA, as detailed i
 
 Leveraging NVIDIA's framework, this project extends those capabilities to create a virtual model of the Husky robot capable of advanced environmental mapping, autonomous navigation, and task execution within a simulated werhouse environment. For those interested in exploring further, NVIDIA's original codebase offers additional features and tools for experimentation and development.
 
+## Citing
+
+```
+@misc{huskysimulation,
+  author = {BMW TechOffice MUNICH},
+  title = {﻿Husky Virtual Commissioning},
+  howpublished = {\url{https://github.com/BMW-InnovationLab/grig-husky-demo-simulation}},
+  year = {2024},
+}
+```
+
+
+
+## Acknowledgments
+
+Grigory A.
+Mashiko L.
+
+
