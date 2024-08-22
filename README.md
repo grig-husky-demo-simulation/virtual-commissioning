@@ -278,7 +278,7 @@ Leveraging NVIDIA's framework, this project extends those capabilities to create
 
 ## Acknowledgments
 
-Grigory A.
-Mashiko L.
+* Grigory A.
+* Mashiko L.
 
 
