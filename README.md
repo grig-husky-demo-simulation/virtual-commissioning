@@ -1,5 +1,5 @@
 # ﻿Husky Virtual Commissioning
-![](images/cover_husky.png)
+![](images/main_intor_image.png)
 
 ## Hardware required
 
